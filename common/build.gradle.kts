@@ -1,5 +1,3 @@
-import org.jetbrains.kotlin.ir.backend.js.compile
-
 plugins {
     kotlin("jvm") version "1.7.10"
     `jvm-test-suite`
@@ -12,12 +10,7 @@ repositories {
 
 dependencies {
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
-}
-
-tasks.withType<JavaCompile>().configureEach {
-    javaCompiler.set(javaToolchains.compilerFor {
-        languageVersion.set(JavaLanguageVersion.of(17))
-    })
+    api("io.github.mrschyzo:opiniom:0.1.0")
 }
 
 group = "com.mrschyzo"
@@ -32,9 +25,3 @@ tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
     kotlinOptions.jvmTarget = JavaVersion.VERSION_17.toString()
     kotlinOptions.javaParameters = true
 }
-
-project("application")
-project("common")
-project("domain")
-project("infrastructure")
-project("server")

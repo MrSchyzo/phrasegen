@@ -10,4 +10,10 @@ pluginManagement {
         id(quarkusPluginId) version quarkusPluginVersion
     }
 }
+
 rootProject.name="phrasegen"
+include("common")
+include("application")
+include("domain")
+include("infrastructure")
+include("server")
